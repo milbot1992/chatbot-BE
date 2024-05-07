@@ -6,7 +6,7 @@ from flask_restful import Api, Resource, reqparse
 from utility import collect_messages
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
-CORS(app, resources={r"*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"*": {"origins": "*"}})
 api = Api(app)
 
 system_context = '''
@@ -29,14 +29,14 @@ class ChatHandler(Resource):
 
     def options(self):
         response = jsonify(success=True)
-        response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+        response.headers.add("Access-Control-Allow-Origin", "*")
         response.headers.add("Access-Control-Allow-Headers", "Content-Type")
         response.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         return response
 
     def get(self):
         response = jsonify(context=self.context)
-        response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+        response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
     def post(self):
@@ -45,7 +45,7 @@ class ChatHandler(Resource):
         context = rqs.get('context')
 
         response = jsonify(collect_messages(prompt, context))
-        response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+        response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
 
