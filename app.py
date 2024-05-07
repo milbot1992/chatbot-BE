@@ -1,4 +1,3 @@
-import logging
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_restful import Api, Resource
@@ -39,7 +38,7 @@ class ChatHandler(Resource):
             response.headers.add("Access-Control-Allow-Origin", "*")
             return response
         except Exception as e:
-            logging.error(f"An error occurred while handling GET request: {str(e)}")
+            print(f"An error occurred while handling GET request: {str(e)}")
             return jsonify(error="An error occurred while handling the request."), 500
 
     def post(self):
@@ -52,9 +51,8 @@ class ChatHandler(Resource):
             response.headers.add("Access-Control-Allow-Origin", "*")
             return response
         except Exception as e:
-            logging.error(f"An error occurred while handling POST request: {str(e)}")
+            print(f"An error occurred while handling POST request: {str(e)}")
             return jsonify(error="An error occurred while handling the request."), 500
-
 
 
 api.add_resource(ChatHandler, '/')
