@@ -1,8 +1,7 @@
-import json
-
-from flask import Flask, send_from_directory, jsonify, request
-from flask_cors import cross_origin, CORS
-from flask_restful import Api, Resource, reqparse
+import logging
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+from flask_restful import Api, Resource
 from utility import collect_messages
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
@@ -35,18 +34,27 @@ class ChatHandler(Resource):
         return response
 
     def get(self):
-        response = jsonify(context=self.context)
-        response.headers.add("Access-Control-Allow-Origin", "*")
-        return response
+        try:
+            response = jsonify(context=self.context)
+            response.headers.add("Access-Control-Allow-Origin", "*")
+            return response
+        except Exception as e:
+            logging.error(f"An error occurred while handling GET request: {str(e)}")
+            return jsonify(error="An error occurred while handling the request."), 500
 
     def post(self):
-        rqs = request.json
-        prompt = rqs.get('prompt')
-        context = rqs.get('context')
+        try:
+            rqs = request.json
+            prompt = rqs.get('prompt')
+            context = rqs.get('context')
 
-        response = jsonify(collect_messages(prompt, context))
-        response.headers.add("Access-Control-Allow-Origin", "*")
-        return response
+            response = jsonify(collect_messages(prompt, context))
+            response.headers.add("Access-Control-Allow-Origin", "*")
+            return response
+        except Exception as e:
+            logging.error(f"An error occurred while handling POST request: {str(e)}")
+            return jsonify(error="An error occurred while handling the request."), 500
+
 
 
 api.add_resource(ChatHandler, '/')
