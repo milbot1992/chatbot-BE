@@ -3,7 +3,7 @@ import openai
 import re
 
 from dotenv import load_dotenv, find_dotenv
-from keywords import prompt_allowed, closing_terms
+from keywords import prompt_allowed, satisfied_terms, closing_terms
 
 _ = load_dotenv(find_dotenv())
 
@@ -13,8 +13,12 @@ def is_prompt_allowed(prompt):
     pattern = re.compile('|'.join(prompt_allowed), re.IGNORECASE)
     return bool(pattern.search(prompt))
 
-def is_closing_text(prompt):
+def is_satisfied(prompt):
     pattern = re.compile('|'.join(closing_terms), re.IGNORECASE)
+    return bool(pattern.search(prompt))
+
+def is_finished(prompt):
+    pattern = re.compile('|'.join(satisfied_terms), re.IGNORECASE)
     return bool(pattern.search(prompt))
 
 ## Helper function
@@ -44,9 +48,13 @@ def collect_messages(prompt: str, context: list, temperature=0):
         context.append({'role': 'user', 'content': f'{prompt}'})
         response = get_completion_from_messages(context, temperature=temperature)
         context.append({'role': 'assistant', 'content': f'{response}'}) 
-    elif is_closing_text(prompt):
+    elif is_satisfied(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
         response = 'Do you have any further questions?'
+        context.append({'role': 'assistant', 'content': f'{response}'})
+    elif is_satisfied(prompt):
+        context.append({'role': 'user', 'content': f'{prompt}'})
+        response = 'Great, I hope I helped and Goodbye'
         context.append({'role': 'assistant', 'content': f'{response}'})
     elif not is_prompt_allowed(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})

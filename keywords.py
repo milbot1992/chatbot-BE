@@ -153,10 +153,10 @@ continuation_terms = [
 
 prompt_allowed = fitness_keywords + greeting_words + continuation_terms
 
-closing_terms = [
+satisfied_terms = [
     'thanks', 'thank you', 'great', 'ok', 'okay', 'got it', 'good',
     'understood', 'cool', 'awesome', 'perfect', 'sounds good', 
-    'that’s it', 'that’s all', 'no further questions', 'no more questions', 
+    'that’s it', 'that’s all',  
     'thats it', 'thats all', 'clear', 'fine',
     'all set', 'good', 'excellent', 'super', 'fantastic', 
     'wonderful', 'brilliant', 'terrific', 'amazing', 
@@ -173,3 +173,20 @@ closing_terms = [
     'this is excellent', 'you rock', 'you’re the best', 'I’m okay', 
     'I’m okay with this', 'this is what I needed', 'this is exactly what I needed'
 ]
+
+closing_terms = [
+    'no', 'nah', 'nope', 'I’m done', 'Im done', 'goodbye', 
+    'I want to go', 'no further questions', 'no more questions', 
+    'bye', 'see you', 'see ya', 'later', 'catch you later', 
+    'I’m out', 'Im out', 'that’s all', 'that’s it', 
+    'all done', 'all set', 'finished', 'I’m finished', 
+    'I’m leaving', 
+    'Im leaving', 'I have to go', 'I gotta go', 'I need to go', 
+    'I must go', 'time to go', 'exit', 'quit', 'end', 
+    'terminate', 'log off', 'sign off', 'disconnect', 
+    'close', 'shut down', 'finish', 
+    'I’m signing off', 'Im signing off', 'I’m logging off', 
+    'Im logging off', 'I’m quitting', 'Im quitting', 
+    'I’m exiting', 'Im exiting', 'that will be all'
+]
+
