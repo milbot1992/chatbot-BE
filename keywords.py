@@ -117,15 +117,39 @@ fitness_keywords = [
     ]
 
 greeting_words = [
-    'hello', 'hi', 'howdy', 'hey', 'greetings', 'salutations', 
-    'welcome', 'what’s up', 'yo', 'hiya', 'good day', 'morning', 
-    'afternoon', 'evening', 'good to see you'
+    'hello', 'hi', 'howdy', 'hey', 'greetings', 'salutations',
+    'welcome', 'what’s up', 'yo', 'hiya', 'good day', 'morning',
+    'whats up',
+    'afternoon', 'evening', 'good to see you', 'how are you', 
+    'how’s it going', 'what’s going on', 'what’s new', 'howdy-do',
+    'hows it going', 'whats going on', 'whats new'
+    'how do you do', 'hey there', 'hello there', 'hi there', 
+    'hey hey', 'sup', 'what’s happening', 'nice to meet you', 
+    'pleased to meet you', 'long time no see', 'hi everyone', 
+    'how have you been', 'how are you doing', 'hey buddy', 
+    'how’s everything', 'how’s life', 'how’s things', 'hiya', 
+    'hows everything', 'hows life', 'hows things',
+    'good morning', 'good afternoon', 'good evening', 
+    'top of the morning to you', 'yo yo', 'hey ya', 'aloha', 
+    'bonjour', 'hola', 'salut', 'ciao', 'namaste', 'shalom', 
+    'hi there'
 ]
 
 continuation_terms = [
     'continue', 'more', 'carry on', 'go on', 'proceed', 
     'further', 'keep going', 'keep on', 'go ahead', 'extend', 
-    'elaborate', 'expand', 'add on', 'go into detail'
+    'elaborate', 'expand', 'add on', 'go into detail', 
+    'tell me more', 'give me more', 'keep telling me', 'keep it up', 
+    'go further', 'give details', 'provide more info', 'keep explaining', 
+    'keep describing', 'keep talking', 'give more information', 
+    'say more', 'more details', 'details please', 'go deeper', 
+    'can you elaborate', 'can you explain more', 'can you expand on that', 
+    'keep elaborating', 'additional information', 'add details', 
+    'add more', 'continue explaining', 'continue describing', 
+    'please continue', 'please go on', 'continue please', 
+    'expand please', 'elaborate please', 'more info', 
+    'give me additional details', 'add information', 'tell me further'
 ]
+
 
 prompt_allowed = fitness_keywords + greeting_words + continuation_terms
