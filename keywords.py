@@ -151,5 +151,25 @@ continuation_terms = [
     'give me additional details', 'add information', 'tell me further'
 ]
 
-
 prompt_allowed = fitness_keywords + greeting_words + continuation_terms
+
+closing_terms = [
+    'thanks', 'thank you', 'great', 'ok', 'okay', 'got it', 'good',
+    'understood', 'cool', 'awesome', 'perfect', 'sounds good', 
+    'that’s it', 'that’s all', 'no further questions', 'no more questions', 
+    'thats it', 'thats all', 'clear', 'fine',
+    'all set', 'good', 'excellent', 'super', 'fantastic', 
+    'wonderful', 'brilliant', 'terrific', 'amazing', 
+    'fine', 'alright', 'fine with me', 'this is good', 'this works', 
+    'works for me', 'I’m happy', 'I’m satisfied', 'satisfied', 
+    'Im happy', 'Im satisfied',
+    'no problem', 'A-OK', 'roger that', 'affirmative', 'splendid', 
+    'very good', 'much appreciated', 'I appreciate it', 'grateful', 
+    'many thanks', 'I’m good', 'no issues', 'no doubts', 
+    'all clear', 'this helps', 'this is helpful', 'it’s clear', 
+    'I’m clear', 'everything is clear', 'it’s fine', 'no worries', 
+    'no concerns', 'clear enough', 'that’s clear', 'you’ve been helpful', 
+    'you’ve been great', 'you’ve been fantastic', 'this is perfect', 
+    'this is excellent', 'you rock', 'you’re the best', 'I’m okay', 
+    'I’m okay with this', 'this is what I needed', 'this is exactly what I needed'
+]
