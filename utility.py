@@ -14,11 +14,11 @@ def is_prompt_allowed(prompt):
     return bool(pattern.search(prompt))
 
 def is_satisfied(prompt):
-    pattern = re.compile('|'.join(closing_terms), re.IGNORECASE)
+    pattern = re.compile('|'.join(satisfied_terms), re.IGNORECASE)
     return bool(pattern.search(prompt))
 
 def is_finished(prompt):
-    pattern = re.compile('|'.join(satisfied_terms), re.IGNORECASE)
+    pattern = re.compile('|'.join(closing_terms), re.IGNORECASE)
     return bool(pattern.search(prompt))
 
 ## Helper function
