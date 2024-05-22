@@ -40,17 +40,17 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
 
 
 def collect_messages(prompt: str, context: list, temperature=0):
-    if not is_prompt_allowed(prompt):
+    if is_prompt_allowed(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
-        response = "Sorry, I am a fitness chatbot - please ask me a fitness related question."
-        context.append({'role': 'assistant', 'content': f'{response}'})
+        response = get_completion_from_messages(context, temperature=temperature)
+        context.append({'role': 'assistant', 'content': f'{response}'}) 
     elif is_closing_text(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
         response = 'Do you have any further questions?'
         context.append({'role': 'assistant', 'content': f'{response}'})
-    else:
+    elif not is_prompt_allowed(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
-        response = get_completion_from_messages(context, temperature=temperature)
+        response = "Sorry, I am a fitness chatbot - please ask me a fitness related question."
         context.append({'role': 'assistant', 'content': f'{response}'})
 
     return {'context': context}
