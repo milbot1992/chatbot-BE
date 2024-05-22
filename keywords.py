@@ -148,7 +148,7 @@ continuation_terms = [
     'add more', 'continue explaining', 'continue describing', 
     'please continue', 'please go on', 'continue please', 
     'expand please', 'elaborate please', 'more info', 
-    'give me additional details', 'add information', 'tell me further'
+    'give me additional details', 'add information', 'tell me further', 'give me specifics', 'break it down'
 ]
 
 prompt_allowed = fitness_keywords + greeting_words + continuation_terms

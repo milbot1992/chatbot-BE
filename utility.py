@@ -54,7 +54,7 @@ def collect_messages(prompt: str, context: list, temperature=0):
         context.append({'role': 'assistant', 'content': f'{response}'})
     elif is_finished(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
-        response = 'Great, I hope I helped and Goodbye'
+        response = 'Great, I hope I helped. Goodbye for now.'
         context.append({'role': 'assistant', 'content': f'{response}'})
     elif not is_prompt_allowed(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
