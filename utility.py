@@ -36,11 +36,14 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
 
 
 def collect_messages(prompt: str, context: list, temperature=0):
-    if not is_fitness_related(prompt):
+    context.append({'role': 'user', 'content': prompt})
+
+    # Check if the prompt or context is fitness-related
+    full_context_text = ' '.join([msg['content'] for msg in context])
+    if not is_fitness_related(full_context_text):
         response = "Sorry, I am a fitness chatbot - please ask me a fitness related question."
     else:
-        context.append({'role': 'user', 'content': f'{prompt}'})
         response = get_completion_from_messages(context, temperature=temperature)
-        context.append({'role': 'assistant', 'content': f'{response}'})
+        context.append({'role': 'assistant', 'content': response})
 
     return {'context': context}
