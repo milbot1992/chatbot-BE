@@ -52,7 +52,7 @@ def collect_messages(prompt: str, context: list, temperature=0):
         context.append({'role': 'user', 'content': f'{prompt}'})
         response = 'Do you have any further questions?'
         context.append({'role': 'assistant', 'content': f'{response}'})
-    elif is_satisfied(prompt):
+    elif is_finished(prompt):
         context.append({'role': 'user', 'content': f'{prompt}'})
         response = 'Great, I hope I helped and Goodbye'
         context.append({'role': 'assistant', 'content': f'{response}'})
