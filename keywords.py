@@ -113,7 +113,7 @@ fitness_keywords = [
     'stationary bike', 'spin bike', 'exercise bike', 
     'stair climber', 'step machine', 'stepper', 
     'battle ropes', 'medicine ball', 'slam ball', 
-    'stability ball', 'Bosu ball', 'balance board'
+    'stability ball', 'Bosu ball', 'balance board', 'arms', 'bum', 'glutes', 'legs', 'pecs', 'chest', 'calves'
     ]
 
 greeting_words = [
